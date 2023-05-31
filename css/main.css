@@ -284,15 +284,9 @@ div.clickEffect {
   html {
     font-size: 12px;
   }
-  html nav.standard {
-    display: none;
-  }
-  html nav.mobile {
-    display: block;
-  }
 }
 
-nav.standard {
+.nav {
   font-family: "Titillium Web", sans-serif;
   position: fixed;
   top: 0;
@@ -303,15 +297,28 @@ nav.standard {
   width: 100%;
   z-index: 9;
 }
-nav.standard ul {
+.nav .nav__logo {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  height: 40px;
+}
+.nav .nav__logo img {
+  height: 40px;
+}
+.nav .nav__btn {
+  display: none;
+}
+.nav ul {
   margin: 10px auto;
   display: flex;
 }
-nav.standard ul li {
+.nav ul li {
   margin-left: 30px;
   padding: 5px;
 }
-nav.standard ul li a {
+.nav ul li a {
   display: block;
   font-size: 1.2rem;
   padding: 5px;
@@ -319,14 +326,14 @@ nav.standard ul li a {
   color: #fff;
 }
 @media (hover: hover) and (pointer: fine) {
-  nav.standard ul li a:hover {
+  .nav ul li a:hover {
     color: #E94560;
   }
 }
-nav.standard ul li .activeMenu {
+.nav ul li .activeMenu {
   position: relative;
 }
-nav.standard ul li .activeMenu::after {
+.nav ul li .activeMenu::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -335,104 +342,84 @@ nav.standard ul li .activeMenu::after {
   width: 100%;
   background-color: #E94560;
 }
-
-nav.mobile {
-  display: none;
-  font-family: "Titillium Web", sans-serif;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  min-height: 75px;
-  background-color: #1A1A2E;
-  z-index: 9;
-  font-size: 1.5rem;
-  font-weight: bold;
+@media (max-width: 750px) {
+  .nav {
+    min-height: 75px;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  .nav .nav__logo {
+    left: auto;
+    right: 15px;
+  }
+  .nav .nav__btn {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 75px;
+    height: 75px;
+  }
+  .nav .nav__btn svg {
+    min-width: 20px;
+    min-height: 20px;
+    max-width: 30px;
+    max-height: 30px;
+    fill: #fff;
+    margin-right: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0);
+    transition: transform 0.5s ease-in-out;
+  }
+  .nav .nav__list-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform: translate(0, calc(-100% - 75px));
+    z-index: -1;
+    margin: 75px auto 10px;
+    background-color: #1A1A2E;
+    transition: transform 0.5s ease-in-out;
+  }
+  .nav .nav__list-container ul {
+    display: block;
+    width: -moz-max-content;
+    width: max-content;
+    margin: 0 auto;
+  }
+  .nav .nav__list-container ul li {
+    width: -moz-min-content;
+    width: min-content;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  .nav .nav__list-container ul li .activeMenu::after {
+    left: -15px;
+    height: 100%;
+    width: 5px;
+  }
+  .nav.showNav .nav__list-container {
+    transform: translate(0, 0);
+  }
+  .nav.showNav button svg {
+    transform: translate(-50%, -50%) rotate(720deg);
+  }
 }
-nav.mobile button {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 75px;
-  height: 75px;
-}
-nav.mobile button svg {
-  min-width: 20px;
-  min-height: 20px;
-  max-width: 30px;
-  max-height: 30px;
-  fill: #fff;
-  margin-right: auto;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(0);
-  transition: transform 0.5s ease-in-out;
-}
-nav.mobile .list-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  transform: translate(0, calc(-100% - 75px));
-  z-index: -1;
-  margin: 75px auto 10px;
-  background-color: #1A1A2E;
-  transition: transform 0.5s ease-in-out;
-}
-nav.mobile .list-container ul {
-  width: -moz-max-content;
-  width: max-content;
-  margin: 0 auto;
-}
-nav.mobile .list-container ul::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  bottom: 0;
-  left: -50vh;
-  width: 100vh;
-  background-color: #1A1A2E;
-}
-nav.mobile .list-container ul li {
-  padding: 5px;
-  width: -moz-min-content;
-  width: min-content;
-  margin-bottom: 10px;
-  margin-top: 10px;
-}
-nav.mobile .list-container ul li a {
-  text-decoration: none;
-  color: #fff;
-}
-nav.mobile .list-container ul li .activeMenu {
-  position: relative;
-}
-nav.mobile .list-container ul li .activeMenu::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: -15px;
-  height: 100%;
-  width: 5px;
-  background-color: #E94560;
-}
-nav.mobile.showNav .list-container {
-  transform: translate(0, 0);
-}
-nav.mobile.showNav button svg {
-  transform: translate(-50%, -50%) rotate(720deg);
-}
-@media screen and (orientation: landscape) {
-  nav.mobile {
+@media screen and (max-width: 750px) and (orientation: landscape) {
+  .nav {
     background-color: transparent;
   }
-  nav.mobile button {
+  .nav .nav__logo {
+    display: none;
+  }
+  .nav .nav__btn {
     background-color: #1A1A2E;
     border-radius: 0 0 10px 0;
   }
-  nav.mobile.showNav .list-container {
+  .nav.showNav .nav__list-container {
     transform: translate(0, -75px);
   }
 }

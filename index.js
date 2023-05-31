@@ -17,20 +17,20 @@ function activeNavTab() {
   const links = [...document.querySelectorAll('nav a')]
 
   if (!belowSections.length) return 
-  const oldAnchors = document.querySelectorAll('nav a.activeMenu')
-  const newAnchors = (function (id) {
-    let temp = []
+  const oldAnchor = document.querySelector('nav a.activeMenu')
+  const newAnchor = (function (id) {
+    let temp
     links.forEach(link => {
       if (link.getAttribute("href") === '#' + id) {
-        temp.push(link)
+        temp = link
       }
     })
     return temp
   })(belowSections[0].id)
 
-  if (!newAnchors.length) return
-  oldAnchors.forEach(anchor => anchor.classList.remove('activeMenu'))
-  newAnchors.forEach(anchor => anchor.classList.add('activeMenu'))
+  if (!newAnchor) return
+  oldAnchor.classList.remove('activeMenu')
+  newAnchor.classList.add('activeMenu')
 }
 
 //reveal elements on scroll
@@ -41,6 +41,7 @@ function reveal() {
     let revealTop = reveal.getBoundingClientRect().top
     let revealPoint = window.innerHeight * 0.3
     if (revealTop < windowHeight - revealPoint) reveal.classList.add('active')
+    if (window.scrollY <= 10 ) reveal.classList.remove('active')
   })
 }
 
@@ -169,13 +170,13 @@ const initCanvas = () => {
 initCanvas();
 
 // handle mobile nav
-let nav = document.querySelector('nav.mobile')
+let nav = document.querySelector('nav.main')
 function toggleNav() {
   nav.classList.toggle('showNav')
 }
 
 document.getElementById('switchNav').addEventListener('click', toggleNav)
-document.querySelectorAll('nav.mobile ul a').forEach(link => link.addEventListener('click', toggleNav))
+document.querySelectorAll('nav.main ul a').forEach(link => link.addEventListener('click', toggleNav))
 
 
 // click effect
