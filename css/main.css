@@ -532,7 +532,7 @@ section {
 #about .about__techstack .about__techstack--container:not(:nth-child(1)) {
   margin-top: 80px;
 }
-#about .about__techstack .about__techstack--container .vue {
+#about .about__techstack .about__techstack--container .list {
   display: flex;
   justify-content: space-around;
   font-size: 0.9rem;
@@ -569,7 +569,7 @@ section {
 #about .about__techstack .about__techstack--container:nth-child(2) {
   grid-template-columns: repeat(2, 1fr);
 }
-#about .about__techstack .about__techstack--container:nth-child(3) {
+#about .about__techstack .about__techstack--container:nth-child(3), #about .about__techstack .about__techstack--container:nth-child(4) {
   grid-template-columns: repeat(1, 1fr);
 }
 @media (max-width: 600px) {
@@ -587,7 +587,7 @@ section {
   #about .about__techstack .about__techstack--container:nth-child(3) .about__techstack--item {
     margin-bottom: 1rem;
   }
-  #about .about__techstack .about__techstack--container .vue {
+  #about .about__techstack .about__techstack--container .list {
     margin-top: 0;
     flex-direction: column;
     align-items: center;
@@ -729,7 +729,9 @@ section {
   max-width: 500px;
   width: 100%;
 }
-#contact .form-container form input[type=text], #contact .form-container form input[type=email], #contact .form-container form textarea {
+#contact .form-container form input[type=text],
+#contact .form-container form input[type=email],
+#contact .form-container form textarea {
   border-radius: 10px;
   padding: 10px;
   margin-bottom: 20px;
@@ -739,25 +741,35 @@ section {
   outline: none;
   font-size: 1.2rem;
 }
-#contact .form-container form input[type=text]:focus, #contact .form-container form input[type=email]:focus, #contact .form-container form textarea:focus {
+#contact .form-container form input[type=text]:focus,
+#contact .form-container form input[type=email]:focus,
+#contact .form-container form textarea:focus {
   box-shadow: 0 0 3px 3px #E94560;
 }
 #contact .form-container form input[type=text]:not(:-moz-placeholder-shown) + label, #contact .form-container form input[type=email]:not(:-moz-placeholder-shown) + label, #contact .form-container form textarea:not(:-moz-placeholder-shown) + label {
   top: -90px;
   color: #E94560;
 }
-#contact .form-container form input[type=text]:focus + label, #contact .form-container form input[type=text]:not(:placeholder-shown) + label, #contact .form-container form input[type=email]:focus + label, #contact .form-container form input[type=email]:not(:placeholder-shown) + label, #contact .form-container form textarea:focus + label, #contact .form-container form textarea:not(:placeholder-shown) + label {
+#contact .form-container form input[type=text]:focus + label, #contact .form-container form input[type=text]:not(:placeholder-shown) + label,
+#contact .form-container form input[type=email]:focus + label,
+#contact .form-container form input[type=email]:not(:placeholder-shown) + label,
+#contact .form-container form textarea:focus + label,
+#contact .form-container form textarea:not(:placeholder-shown) + label {
   top: -90px;
   color: #E94560;
 }
 #contact .form-container form input[type=text]::-moz-placeholder, #contact .form-container form input[type=email]::-moz-placeholder, #contact .form-container form textarea::-moz-placeholder {
   color: white;
 }
-#contact .form-container form input[type=text]::placeholder, #contact .form-container form input[type=email]::placeholder, #contact .form-container form textarea::placeholder {
+#contact .form-container form input[type=text]::placeholder,
+#contact .form-container form input[type=email]::placeholder,
+#contact .form-container form textarea::placeholder {
   color: white;
 }
 @media (hover: hover) and (pointer: fine) {
-  #contact .form-container form input[type=text]:hover:not(:focus), #contact .form-container form input[type=email]:hover:not(:focus), #contact .form-container form textarea:hover:not(:focus) {
+  #contact .form-container form input[type=text]:hover:not(:focus),
+  #contact .form-container form input[type=email]:hover:not(:focus),
+  #contact .form-container form textarea:hover:not(:focus) {
     box-shadow: 0 0 7px 1px #E94560;
   }
 }
@@ -814,7 +826,11 @@ section {
   #contact .form-container form input[type=text]:not(:-moz-placeholder-shown) + label, #contact .form-container form input[type=email]:not(:-moz-placeholder-shown) + label, #contact .form-container form textarea:not(:-moz-placeholder-shown) + label {
     top: -86px;
   }
-  #contact .form-container form input[type=text]:focus + label, #contact .form-container form input[type=text]:not(:placeholder-shown) + label, #contact .form-container form input[type=email]:focus + label, #contact .form-container form input[type=email]:not(:placeholder-shown) + label, #contact .form-container form textarea:focus + label, #contact .form-container form textarea:not(:placeholder-shown) + label {
+  #contact .form-container form input[type=text]:focus + label, #contact .form-container form input[type=text]:not(:placeholder-shown) + label,
+  #contact .form-container form input[type=email]:focus + label,
+  #contact .form-container form input[type=email]:not(:placeholder-shown) + label,
+  #contact .form-container form textarea:focus + label,
+  #contact .form-container form textarea:not(:placeholder-shown) + label {
     top: -86px;
   }
   #contact .form-container form label {
@@ -825,7 +841,11 @@ section {
   #contact .form-container form input[type=text]:not(:-moz-placeholder-shown) + label, #contact .form-container form input[type=email]:not(:-moz-placeholder-shown) + label, #contact .form-container form textarea:not(:-moz-placeholder-shown) + label {
     top: -80px;
   }
-  #contact .form-container form input[type=text]:focus + label, #contact .form-container form input[type=text]:not(:placeholder-shown) + label, #contact .form-container form input[type=email]:focus + label, #contact .form-container form input[type=email]:not(:placeholder-shown) + label, #contact .form-container form textarea:focus + label, #contact .form-container form textarea:not(:placeholder-shown) + label {
+  #contact .form-container form input[type=text]:focus + label, #contact .form-container form input[type=text]:not(:placeholder-shown) + label,
+  #contact .form-container form input[type=email]:focus + label,
+  #contact .form-container form input[type=email]:not(:placeholder-shown) + label,
+  #contact .form-container form textarea:focus + label,
+  #contact .form-container form textarea:not(:placeholder-shown) + label {
     top: -80px;
   }
   #contact .form-container form label {
@@ -909,13 +929,17 @@ footer {
   font-size: 0.8rem;
 }
 
-.reveal-right, .reveal-left, .reveal-appear {
+.reveal-right,
+.reveal-left,
+.reveal-appear {
   position: relative;
   z-index: 3;
   opacity: 0;
   transition: transform 0.2s ease-out, opacity 0.4s ease-out;
 }
-.reveal-right.active, .reveal-left.active, .reveal-appear.active {
+.reveal-right.active,
+.reveal-left.active,
+.reveal-appear.active {
   transform: translateX(0px);
   opacity: 1;
 }
